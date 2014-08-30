@@ -1,0 +1,42 @@
+<div class="page-header">
+    <h1>Create New Poll</h1>
+</div>
+<form name="form" role="form" ng-submit="createPoll()" novalidate>
+    <div class="form-group">
+        <label for="pollQuestion">Question</label>
+        <input type="text" ng-model="poll.question" name="question"  class="form-control" required
+               id="pollQuestion" placeholder="Enter poll question">
+
+    </div>
+    <div class="form-group" ng-repeat="answer in poll.answers">
+        <label>Answer {{$index+1}}</label>
+
+        <div class="input-group">
+            <input type="text" ng-model="answer.text" required class="form-control"
+                   placeholder="Enter answer {{$index+1}} text" name="answer{{$index+1}}">
+            <span class="input-group-addon "><i class="glyphicon glyphicon-remove-circle" ng-click="removeAnswer(answer,$index)"></i></span>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-success" ng-click="addAnswer()"><span class="glyphicon glyphicon-plus"></span> Add another Answer </button>
+        </div>
+    </div>
+    <p>
+    <hr>
+    </p>
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="#/polls" class="btn btn-default" role="button">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Back to Poll List</a>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-primary pull-right" type="submit" ng-disabled="form.$invalid">
+                Create Poll &raquo;</button>
+        </div>
+    </div>
+
+</form>

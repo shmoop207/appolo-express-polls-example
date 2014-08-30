@@ -1,0 +1,60 @@
+<div class="page-header">
+    <h1>View Poll</h1>
+</div>
+<div class="well">
+    <h2>{{poll.question}}</h2>
+</div>
+<div ng-hide="poll.answerVoted">
+    <p class="lead">Please select one of the following options.</p>
+
+    <form role="form" name="voteForm" ng-submit="vote()">
+        <div ng-repeat="answer in poll.answers" class="radio">
+            <label>
+                <input type="radio" name="answer" required="" ng-model="poll.answerId"
+                       value="{{answer._id}}">
+                {{answer.text}}
+            </label>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="#/polls" class="btn btn-default" role="button"><span
+                        class="glyphicon glyphicon-arrow-left"></span> Back to Poll
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <button ng-disabled="voteForm.$invalid" class="btn btn-primary pull-right" type="submit">
+                    Vote &raquo;</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div ng-show="poll.answerVoted">
+
+
+    <div  ng-repeat="answer in poll.answers">
+        <p><span>{{answer.text}}</span><span class="badge pull-right">Votes: {{answer.totalVotes}}</span></p>
+    <div class="progress">
+
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+             aria-valuemax="100" style="width: {{answer.totalVotes/poll.totalVotes*100}}%">
+
+        </div>
+    </div>
+    </div>
+
+
+    <!--<chart poll="poll"></chart>-->
+
+    <!--<div>{{poll.totalVotes}} votes counted so far.</div>-->
+    <!--<div ng-show="poll.answerVoted">-->
+        <!--You voted for <strong>{{poll.answerVoted.text}}</strong>.-->
+    <!--</div>-->
+
+    <hr>
+    <p>
+        <a href="#/polls" class="btn btn-default" role="button">
+            <span class="glyphicon glyphicon-arrow-left"></span> Back to Poll List
+        </a>
+    </p>
+</div>

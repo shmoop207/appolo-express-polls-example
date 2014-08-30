@@ -1,0 +1,33 @@
+<div class="jumbotron">
+    <h1>Appolo Polls Example!</h1>
+
+    <p>here you can create free polls with unlimited number of answers. enjoy!</p>
+
+    <p><a href="/#/create" class="btn btn-primary btn-lg" role="button">Create Poll Now »</a></p>
+</div>
+<div class="clearfix">
+    <div class="form-group pull-left">
+        <input type="text" placeholder="Search" ng-model="search" ng-model-options="{ debounce: 500 }" class="form-control">
+    </div>
+
+    <div class="pull-right">
+
+        <div class="btn-group" data-toggle="buttons">
+
+            <label class="btn btn-primary active" ng-click="predicate = 'date'">
+                <input type="radio" name="options"> Date
+            </label>
+            <label class="btn btn-primary " ng-click="predicate = 'votes'">
+                <input type="radio" name="options"> Votes
+            </label>
+        </div>
+
+
+    </div>
+</div>
+<ul class="list-group ">
+    <li class="list-group-item" ng-repeat="poll in polls | orderBy:predicate:true | filter:{'question':search}">
+        <span class="badge">Votes: {{::poll.totalVotes}}</span>
+        <a href="/#/poll/{{::poll._id}}">{{::poll.question}}</a>
+    </li>
+</ul>

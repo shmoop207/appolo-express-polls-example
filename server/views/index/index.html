@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    <script src="/app.js"></script>
+    <script src="/pages/header/headerController.js"></script>
+    <script src="/pages/polls_list/pollListController.js"></script>
+    <script src="/pages/poll_item/pollItemController.js"></script>
+    <script src="/pages/create_poll/createPollController.js"></script>
+
+
+    <script src="/services/pollsService.js"></script>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+
+
+</head>
+<body  ng-app="pollsApp">
+
+
+<div ng-include="'pages/header/header.html'" ng-controller="headerController"></div>
+
+    <div class="container" ng-view></div>
+
+
+
+</body>
+</html>
