@@ -6,7 +6,7 @@ module.exports = function(options){
         mongoose.connect(appolo.environment.mongoUrl);
 
         mongoose.connection.on('error', function (e) {
-            logger.error('connection error',{error:e});
+            logger.error('mongodb connection error',{error:e});
         });
         mongoose.connection.once('open', function () {
             logger.info('mongodb connection open');
