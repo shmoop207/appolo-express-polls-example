@@ -11,9 +11,10 @@ For a live demo go to:
 
 [http://appolo-express-poll-example.herokuapp.com/][4]
 
+
 ### To run:
-
-
+define in the config/all.js file your mongo db connection string 
+	
 	$ node app.js
 	
 After running go to this address:
